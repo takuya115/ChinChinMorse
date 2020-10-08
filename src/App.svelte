@@ -33,6 +33,12 @@
 	</header>
 	<main>
 		<div>
+			ひらがなとカタカナをモールス信号に変えるよ<br>
+			ただし、長点(-)は'ち'、短点(・)は'ん'、区切り文字は'ぽ'になってるよ<br>
+			要するに全部ちんぽになるよ<br>
+			気が向いたらデコードも実装するよ<br>
+		</div>
+		<div>
 			<h3>にゅうりょく</h3>
 			<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
 		</div>
