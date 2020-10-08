@@ -7,7 +7,12 @@
 
 	function encode() {
 		if(detectKanji()) return alert('漢字が含まれています。');
-		encodeWord = morsify.encode(hiraToKana(inputWord), moresProps);
+		const inputList = inputWord.split('\n');
+		const encodeList = [];
+		inputList.forEach((str) => {
+			encodeList.push(morsify.encode(hiraToKana(str), moresProps));
+		})
+		encodeWord = encodeList.join('\n');
 	}
 
 	// ひらがな -> カタカナ
