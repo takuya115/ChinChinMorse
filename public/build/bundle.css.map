@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\r\n\timport morsify from 'morsify';\r\n\r\n\tlet inputWord = '';\r\n\tlet encodeWord = '';\r\n\tconst moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'ぽ　' }\r\n\r\n\tfunction encode() {\r\n\t\tif(detectKanji()) return alert('漢字が含まれています。');\r\n\t\tconst inputList = inputWord.split('\\n');\r\n\t\tconst encodeList = [];\r\n\t\tinputList.forEach((str) => {\r\n\t\t\tencodeList.push(morsify.encode(hiraToKana(str), moresProps));\r\n\t\t})\r\n\t\tencodeWord = encodeList.join('\\n');\r\n\t}\r\n\r\n\t// ひらがな -> カタカナ\r\n\tfunction hiraToKana(str) {\r\n\t\treturn str.replace(/[\\u3041-\\u3096]/g, function(match) {\r\n\t\t\tconst chr = match.charCodeAt(0) + 0x60;\r\n\t\t\treturn String.fromCharCode(chr);\r\n\t\t});\r\n\t}\r\n\r\n\t// 漢字の検出\r\n\tfunction detectKanji() {\r\n\t\tconst regexp = new RegExp(/([\\u{3005}\\u{3007}\\u{303b}\\u{3400}-\\u{9FFF}\\u{F900}-\\u{FAFF}\\u{20000}-\\u{2FFFF}][\\u{E0100}-\\u{E01EF}\\u{FE00}-\\u{FE02}]?)/mu);\r\n\t\treturn regexp.test(inputWord);\r\n\t}\r\n\t\r\n</script>\r\n\r\n\r\n<div class=\"container\">\r\n\t<header>\r\n\t\t<h1>ちんちんもーるす</h1>\r\n\t</header>\r\n\t<main>\r\n\t\t<div>\r\n\t\t\tひらがなとカタカナをモールス信号に変えるよ<br>\r\n\t\t\tただし、長点(-)は'ち'、短点(・)は'ん'、区切り文字は'ぽ'になってるよ<br>\r\n\t\t\t要するに全部ちんぽになるよ<br>\r\n\t\t\t気が向いたらデコードも実装するよ<br>\r\n\t\t</div>\r\n\t\t<div>\r\n\t\t\t<h3>にゅうりょく</h3>\r\n\t\t\t<textarea name=\"input-kana\" id=\"input-kana\" cols=\"30\" rows=\"10\" bind:value={inputWord}></textarea>\r\n\t\t</div>\r\n\t\t\r\n\t\t<button on:click={encode}>えんこーど</button>\r\n\r\n\t\t<div>\r\n\t\t\t<h3>けっか</h3>\r\n\t\t\t<textarea name=\"output-chin\" id=\"output-chin\" cols=\"30\" rows=\"10\" bind:value={encodeWord} readonly></textarea>\r\n\t\t</div>\t\t\r\n\t</main>\r\n</div>\r\n\r\n<style>\r\n\t.container {\r\n\t\ttext-align: center;\r\n\t\tpadding: 1em;\r\n\t\tmax-width: 240px;\r\n\t\tmargin: 0 auto;\r\n\t}\r\n\r\n\ttextarea {\r\n\t\tresize: none;\r\n\t\twidth: 500px;\r\n\t}\r\n\r\n\t@media (min-width: 640px) {\r\n\t\t.container {\r\n\t\t\tmax-width: none;\r\n\t\t}\r\n\t}\r\n</style>"
+  ],
+  "names": [],
+  "mappings": "AA4DC,UAAU,eAAC,CAAC,AACX,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,GAAG,CACZ,SAAS,CAAE,KAAK,CAChB,MAAM,CAAE,CAAC,CAAC,IAAI,AACf,CAAC,AAED,QAAQ,eAAC,CAAC,AACT,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,KAAK,AACb,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AAC1B,UAAU,eAAC,CAAC,AACX,SAAS,CAAE,IAAI,AAChB,CAAC,AACF,CAAC"
+}
