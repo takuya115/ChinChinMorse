@@ -6,6 +6,7 @@
 	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'ぽ　' }
 
 	function encode() {
+		if(detectKanji()) return alert('漢字が含まれています。');
 		encodeWord = morsify.encode(hiraToKana(inputWord), moresProps);
 	}
 
@@ -14,8 +15,14 @@
 		return str.replace(/[\u3041-\u3096]/g, function(match) {
 			const chr = match.charCodeAt(0) + 0x60;
 			return String.fromCharCode(chr);
-    });
-}
+		});
+	}
+
+	// 漢字の検出
+	function detectKanji() {
+		const regexp = new RegExp(/([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu);
+		return regexp.test(inputWord);
+	}
 	
 </script>
 
