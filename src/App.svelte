@@ -86,7 +86,9 @@
 	<div>
 		<h3>しゅつりょく</h3>
 		<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={encodeWord} readonly></textarea>
-	</div>		
+	</div>
+	<a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
+
 </main>
 
 <style>

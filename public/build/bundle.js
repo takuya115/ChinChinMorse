@@ -630,6 +630,8 @@ var app = (function () {
     	let h31;
     	let t14;
     	let textarea1;
+    	let t15;
+    	let a;
     	let mounted;
     	let dispose;
 
@@ -664,6 +666,9 @@ var app = (function () {
     			h31.textContent = "しゅつりょく";
     			t14 = space();
     			textarea1 = element("textarea");
+    			t15 = space();
+    			a = element("a");
+    			a.textContent = "コードはこちら";
     			add_location(h1, file, 70, 1, 1903);
     			set_style(header, "text-align", "center");
     			attr_dev(header, "class", "svelte-1viwdy0");
@@ -690,6 +695,8 @@ var app = (function () {
     			attr_dev(textarea1, "class", "svelte-1viwdy0");
     			add_location(textarea1, file, 87, 2, 2280);
     			add_location(div2, file, 85, 1, 2252);
+    			attr_dev(a, "href", "https://github.com/takuya115/ChinChinMorse");
+    			add_location(a, file, 89, 1, 2402);
     			attr_dev(main, "class", "svelte-1viwdy0");
     			add_location(main, file, 72, 0, 1933);
     		},
@@ -721,6 +728,8 @@ var app = (function () {
     			append_dev(div2, t14);
     			append_dev(div2, textarea1);
     			set_input_value(textarea1, /*encodeWord*/ ctx[1]);
+    			append_dev(main, t15);
+    			append_dev(main, a);
 
     			if (!mounted) {
     				dispose = [
