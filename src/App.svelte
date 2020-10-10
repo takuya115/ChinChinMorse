@@ -6,7 +6,7 @@
 	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'ぽ　' }
 
 	function encode() {
-		if(detectKanji()) return alert('漢字が含まれています。');
+		if(detectKanji()) return alert('漢字はつかえないよ！　めっ！！');
 		const inputList = inputWord.split('\n');
 		const encodeList = [];
 		inputList.forEach((str) => {
@@ -32,36 +32,33 @@
 </script>
 
 
-<div class="container">
-	<header>
-		<h1>ちんちんもーるす</h1>
-	</header>
-	<main>
-		<div>
-			ひらがなとカタカナをモールス信号に変えるよ<br>
-			ただし、長点(-)は'ち'、短点(・)は'ん'、区切り文字は'ぽ'になってるよ<br>
-			要するに全部ちんぽになるよ<br>
-			気が向いたらデコードも実装するよ<br>
-		</div>
-		<div>
-			<h3>にゅうりょく</h3>
-			<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
-		</div>
-		
-		<button on:click={encode}>えんこーど</button>
+<header style="text-align:center;">
+	<h1>ちんちんもーるす</h1>
+</header>
+<main>
+	<div>
+		<h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
+		<p>ただし、ぜんぶ「ちんぽ」になるよ！！</p> 
+		<p>長点(―)：「ち」、短点(・)：「ん」、区切り('')：「ぽ」</p>
+	</div>
+	<div>
+		<h3>にゅうりょく</h3>
+		<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
+	</div>
+	
+	<button on:click={encode}>えんこーど</button>
 
-		<div>
-			<h3>けっか</h3>
-			<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={encodeWord} readonly></textarea>
-		</div>		
-	</main>
-</div>
+	<div>
+		<h3>しゅつりょく</h3>
+		<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={encodeWord} readonly></textarea>
+	</div>		
+</main>
 
 <style>
-	.container {
+	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		max-width: 500px;
 		margin: 0 auto;
 	}
 
@@ -71,8 +68,14 @@
 	}
 
 	@media (min-width: 640px) {
-		.container {
+		main, header {
 			max-width: none;
+		}
+	}
+
+	@media (max-width: 500px) {
+		textarea {
+			width: 100%;
 		}
 	}
 </style>
