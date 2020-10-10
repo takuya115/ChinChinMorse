@@ -1,5 +1,5 @@
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -61,6 +61,9 @@ var app = (function () {
     }
     function set_input_value(input, value) {
         input.value = value == null ? '' : value;
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
     }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
@@ -605,126 +608,117 @@ var app = (function () {
     const file = "src\\App.svelte";
 
     function create_fragment(ctx) {
-    	let div3;
     	let header;
     	let h1;
     	let t1;
     	let main;
     	let div0;
-    	let t2;
-    	let br0;
+    	let h4;
     	let t3;
-    	let br1;
-    	let t4;
-    	let br2;
+    	let p0;
     	let t5;
-    	let br3;
-    	let t6;
+    	let p1;
+    	let t7;
     	let div1;
     	let h30;
-    	let t8;
-    	let textarea0;
     	let t9;
+    	let textarea0;
+    	let t10;
     	let button;
-    	let t11;
+    	let t12;
     	let div2;
     	let h31;
-    	let t13;
+    	let t14;
     	let textarea1;
     	let mounted;
     	let dispose;
 
     	const block = {
     		c: function create() {
-    			div3 = element("div");
     			header = element("header");
     			h1 = element("h1");
     			h1.textContent = "ちんちんもーるす";
     			t1 = space();
     			main = element("main");
     			div0 = element("div");
-    			t2 = text("ひらがなとカタカナをモールス信号に変えるよ");
-    			br0 = element("br");
-    			t3 = text("\r\n\t\t\tただし、長点(-)は'ち'、短点(・)は'ん'、区切り文字は'ぽ'になってるよ");
-    			br1 = element("br");
-    			t4 = text("\r\n\t\t\t要するに全部ちんぽになるよ");
-    			br2 = element("br");
-    			t5 = text("\r\n\t\t\t気が向いたらデコードも実装するよ");
-    			br3 = element("br");
-    			t6 = space();
+    			h4 = element("h4");
+    			h4.textContent = "ひらがなとカタカナをモールス信号に変えるよ！";
+    			t3 = space();
+    			p0 = element("p");
+    			p0.textContent = "ただし、ぜんぶ「ちんぽ」になるよ！！";
+    			t5 = space();
+    			p1 = element("p");
+    			p1.textContent = "長点(―)：「ち」、短点(・)：「ん」、区切り('')：「ぽ」";
+    			t7 = space();
     			div1 = element("div");
     			h30 = element("h3");
     			h30.textContent = "にゅうりょく";
-    			t8 = space();
-    			textarea0 = element("textarea");
     			t9 = space();
+    			textarea0 = element("textarea");
+    			t10 = space();
     			button = element("button");
     			button.textContent = "えんこーど";
-    			t11 = space();
+    			t12 = space();
     			div2 = element("div");
     			h31 = element("h3");
-    			h31.textContent = "けっか";
-    			t13 = space();
+    			h31.textContent = "しゅつりょく";
+    			t14 = space();
     			textarea1 = element("textarea");
-    			add_location(h1, file, 36, 2, 949);
-    			add_location(header, file, 35, 1, 937);
-    			add_location(br0, file, 40, 24, 1022);
-    			add_location(br1, file, 41, 42, 1070);
-    			add_location(br2, file, 42, 16, 1092);
-    			add_location(br3, file, 43, 19, 1117);
-    			add_location(div0, file, 39, 2, 991);
-    			add_location(h30, file, 46, 3, 1145);
+    			add_location(h1, file, 70, 1, 1903);
+    			set_style(header, "text-align", "center");
+    			attr_dev(header, "class", "svelte-1viwdy0");
+    			add_location(header, file, 69, 0, 1865);
+    			add_location(h4, file, 74, 2, 1951);
+    			add_location(p0, file, 75, 2, 1986);
+    			add_location(p1, file, 76, 2, 2016);
+    			add_location(div0, file, 73, 1, 1942);
+    			add_location(h30, file, 79, 2, 2075);
     			attr_dev(textarea0, "name", "input-kana");
     			attr_dev(textarea0, "id", "input-kana");
     			attr_dev(textarea0, "cols", "30");
     			attr_dev(textarea0, "rows", "10");
-    			attr_dev(textarea0, "class", "svelte-1ox28mp");
-    			add_location(textarea0, file, 47, 3, 1165);
-    			add_location(div1, file, 45, 2, 1135);
-    			add_location(button, file, 50, 2, 1281);
-    			add_location(h31, file, 53, 3, 1337);
+    			attr_dev(textarea0, "class", "svelte-1viwdy0");
+    			add_location(textarea0, file, 80, 2, 2094);
+    			add_location(div1, file, 78, 1, 2066);
+    			add_location(button, file, 83, 1, 2207);
+    			add_location(h31, file, 86, 2, 2261);
     			attr_dev(textarea1, "name", "output-chin");
     			attr_dev(textarea1, "id", "output-chin");
     			attr_dev(textarea1, "cols", "30");
     			attr_dev(textarea1, "rows", "10");
     			textarea1.readOnly = true;
-    			attr_dev(textarea1, "class", "svelte-1ox28mp");
-    			add_location(textarea1, file, 54, 3, 1354);
-    			add_location(div2, file, 52, 2, 1327);
-    			add_location(main, file, 38, 1, 981);
-    			attr_dev(div3, "class", "container svelte-1ox28mp");
-    			add_location(div3, file, 34, 0, 911);
+    			attr_dev(textarea1, "class", "svelte-1viwdy0");
+    			add_location(textarea1, file, 87, 2, 2280);
+    			add_location(div2, file, 85, 1, 2252);
+    			attr_dev(main, "class", "svelte-1viwdy0");
+    			add_location(main, file, 72, 0, 1933);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div3, anchor);
-    			append_dev(div3, header);
+    			insert_dev(target, header, anchor);
     			append_dev(header, h1);
-    			append_dev(div3, t1);
-    			append_dev(div3, main);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, main, anchor);
     			append_dev(main, div0);
-    			append_dev(div0, t2);
-    			append_dev(div0, br0);
+    			append_dev(div0, h4);
     			append_dev(div0, t3);
-    			append_dev(div0, br1);
-    			append_dev(div0, t4);
-    			append_dev(div0, br2);
+    			append_dev(div0, p0);
     			append_dev(div0, t5);
-    			append_dev(div0, br3);
-    			append_dev(main, t6);
+    			append_dev(div0, p1);
+    			append_dev(main, t7);
     			append_dev(main, div1);
     			append_dev(div1, h30);
-    			append_dev(div1, t8);
+    			append_dev(div1, t9);
     			append_dev(div1, textarea0);
     			set_input_value(textarea0, /*inputWord*/ ctx[0]);
-    			append_dev(main, t9);
+    			append_dev(main, t10);
     			append_dev(main, button);
-    			append_dev(main, t11);
+    			append_dev(main, t12);
     			append_dev(main, div2);
     			append_dev(div2, h31);
-    			append_dev(div2, t13);
+    			append_dev(div2, t14);
     			append_dev(div2, textarea1);
     			set_input_value(textarea1, /*encodeWord*/ ctx[1]);
 
@@ -750,7 +744,9 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div3);
+    			if (detaching) detach_dev(header);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(main);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -768,8 +764,33 @@ var app = (function () {
     }
 
     function hiraToKana(str) {
-    	return str.replace(/[\u3041-\u3096]/g, function (match) {
+    	return str.replace(/[\u3041-\u3096]/g, match => {
     		const chr = match.charCodeAt(0) + 96;
+    		return String.fromCharCode(chr);
+    	});
+    }
+
+    // 濁音（ガギグゲゴ、など）を文字と濁音記号に分離する
+    function dakuonTransrator(str) {
+    	// unicodeでは「は、ば、ぱ」の並びになっているので-1すれば元の文字が得られる
+    	return str.replace(/[ガギグゲゴザジズゼゾダヂヅデドバビブベボ]/g, match => {
+    		const chr = match.charCodeAt(0) - 1;
+    		return `${String.fromCharCode(chr)}゛`;
+    	});
+    }
+
+    // 半濁音(パピプペポ)を文字と半濁音記号に分離する
+    function handakuonTransrator(str) {
+    	return str.replace(/[パピプペポ]/g, match => {
+    		const chr = match.charCodeAt(0) - 2;
+    		return `${String.fromCharCode(chr)}゜`;
+    	});
+    }
+
+    // 捨て仮名(ャュョなど小さい文字)を元の文字に戻す
+    function suteganaTransrator(str) {
+    	return str.replace(/[ァィゥェォャュョッ]/g, match => {
+    		const chr = match.charCodeAt(0) + 1;
     		return String.fromCharCode(chr);
     	});
     }
@@ -788,12 +809,27 @@ var app = (function () {
     	};
 
     	function encode() {
-    		if (detectKanji()) return alert("漢字が含まれています。");
+    		if (detectKanji()) return alert("漢字はつかえないよ！　めっ！！");
     		const inputList = inputWord.split("\n");
     		const encodeList = [];
 
     		inputList.forEach(str => {
-    			encodeList.push(morsify.encode(hiraToKana(str), moresProps));
+    			let word = str;
+
+    			// ひらがなをカタカナにする
+    			word = hiraToKana(word);
+
+    			// 濁音を「元文字+゛」の形にする
+    			word = dakuonTransrator(word);
+
+    			// 半濁音を「元文字+゜」の形にする
+    			word = handakuonTransrator(word);
+
+    			// 拗音(小さいヤユヨ)を元の文字にする
+    			word = suteganaTransrator(word);
+
+    			// モールス信号にする
+    			encodeList.push(morsify.encode(word, moresProps));
     		});
 
     		$$invalidate(1, encodeWord = encodeList.join("\n"));
@@ -828,6 +864,9 @@ var app = (function () {
     		moresProps,
     		encode,
     		hiraToKana,
+    		dakuonTransrator,
+    		handakuonTransrator,
+    		suteganaTransrator,
     		detectKanji
     	});
 

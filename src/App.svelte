@@ -10,17 +10,52 @@
 		const inputList = inputWord.split('\n');
 		const encodeList = [];
 		inputList.forEach((str) => {
-			encodeList.push(morsify.encode(hiraToKana(str), moresProps));
+			let word = str;
+			// ひらがなをカタカナにする
+			word = hiraToKana(word);
+			// 濁音を「元文字+゛」の形にする
+			word = dakuonTransrator(word);
+			// 半濁音を「元文字+゜」の形にする
+			word = handakuonTransrator(word);
+			// 拗音(小さいヤユヨ)を元の文字にする
+			word = suteganaTransrator(word);
+			// モールス信号にする
+			encodeList.push(morsify.encode(word, moresProps));
 		})
 		encodeWord = encodeList.join('\n');
 	}
 
 	// ひらがな -> カタカナ
 	function hiraToKana(str) {
-		return str.replace(/[\u3041-\u3096]/g, function(match) {
+		return str.replace(/[\u3041-\u3096]/g, (match) => {
 			const chr = match.charCodeAt(0) + 0x60;
 			return String.fromCharCode(chr);
 		});
+	}
+
+	// 濁音（ガギグゲゴ、など）を文字と濁音記号に分離する
+	function dakuonTransrator(str) {
+		// unicodeでは「は、ば、ぱ」の並びになっているので-1すれば元の文字が得られる
+		return str.replace(/[ガギグゲゴザジズゼゾダヂヅデドバビブベボ]/g, (match) => {
+			const chr = match.charCodeAt(0) - 0x1;
+			return `${String.fromCharCode(chr)}゛`;
+		})
+	}
+
+	// 半濁音(パピプペポ)を文字と半濁音記号に分離する
+	function handakuonTransrator(str) {
+		return str.replace(/[パピプペポ]/g, (match) => {
+			const chr = match.charCodeAt(0) - 0x2;
+			return `${String.fromCharCode(chr)}゜`;
+		})
+	}
+
+	// 捨て仮名(ャュョなど小さい文字)を元の文字に戻す
+	function suteganaTransrator(str) {
+		return str.replace(/[ァィゥェォャュョッ]/g, (match) => {
+			const chr = match.charCodeAt(0) + 0x1;
+			return String.fromCharCode(chr);
+		})
 	}
 
 	// 漢字の検出
