@@ -808,7 +808,7 @@ var app = (function () {
     		priority: 10,
     		dash: "ちんちん",
     		dot: "ちんこ",
-    		separator: "╰⋃╯"
+    		separator: "ちんぽ"
     	};
 
     	const mesugakiProps = {

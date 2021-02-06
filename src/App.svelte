@@ -3,7 +3,7 @@
 
 	let inputWord = '';
 	let outputWord = '';
-	const moresProps =  { priority: 10, dash: 'ちんちん', dot: 'ちんこ', separator: '╰⋃╯' };
+	const moresProps =  { priority: 10, dash: 'ちんちん', dot: 'ちんこ', separator: 'ちんぽ' };
 	const mesugakiProps = { priority: 10, dash: 'ざぁこ', dot: '♥', separator: '♡' }
 
 	function encode() {
