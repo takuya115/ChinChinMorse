@@ -624,13 +624,16 @@ var app = (function () {
     	let t9;
     	let textarea0;
     	let t10;
-    	let button;
-    	let t12;
     	let div2;
-    	let h31;
+    	let button0;
+    	let t12;
+    	let button1;
     	let t14;
+    	let div3;
+    	let h31;
+    	let t16;
     	let textarea1;
-    	let t15;
+    	let t17;
     	let a;
     	let mounted;
     	let dispose;
@@ -647,10 +650,10 @@ var app = (function () {
     			h4.textContent = "ひらがなとカタカナをモールス信号に変えるよ！";
     			t3 = space();
     			p0 = element("p");
-    			p0.textContent = "ただし、ぜんぶ「ちんぽ」になるよ！！";
+    			p0.textContent = "ただし、ぜんぶ「ちんこ」になるよ！！";
     			t5 = space();
     			p1 = element("p");
-    			p1.textContent = "長点(―)：「ち」、短点(・)：「ん」、区切り('')：「ぽ」";
+    			p1.textContent = "「ちんこ」で会話したい人は遊んでみてね！！";
     			t7 = space();
     			div1 = element("div");
     			h30 = element("h3");
@@ -658,47 +661,57 @@ var app = (function () {
     			t9 = space();
     			textarea0 = element("textarea");
     			t10 = space();
-    			button = element("button");
-    			button.textContent = "えんこーど";
-    			t12 = space();
     			div2 = element("div");
+    			button0 = element("button");
+    			button0.textContent = "えんこーど";
+    			t12 = space();
+    			button1 = element("button");
+    			button1.textContent = "でこーど";
+    			t14 = space();
+    			div3 = element("div");
     			h31 = element("h3");
     			h31.textContent = "しゅつりょく";
-    			t14 = space();
+    			t16 = space();
     			textarea1 = element("textarea");
-    			t15 = space();
+    			t17 = space();
     			a = element("a");
     			a.textContent = "コードはこちら";
-    			add_location(h1, file, 70, 1, 1903);
+    			add_location(h1, file, 80, 1, 2143);
     			set_style(header, "text-align", "center");
     			attr_dev(header, "class", "svelte-1viwdy0");
-    			add_location(header, file, 69, 0, 1865);
-    			add_location(h4, file, 74, 2, 1951);
-    			add_location(p0, file, 75, 2, 1986);
-    			add_location(p1, file, 76, 2, 2016);
-    			add_location(div0, file, 73, 1, 1942);
-    			add_location(h30, file, 79, 2, 2075);
+    			add_location(header, file, 79, 0, 2105);
+    			add_location(h4, file, 84, 2, 2191);
+    			add_location(p0, file, 85, 2, 2226);
+    			add_location(p1, file, 86, 2, 2256);
+    			add_location(div0, file, 83, 1, 2182);
+    			add_location(h30, file, 89, 2, 2305);
     			attr_dev(textarea0, "name", "input-kana");
     			attr_dev(textarea0, "id", "input-kana");
     			attr_dev(textarea0, "cols", "30");
     			attr_dev(textarea0, "rows", "10");
     			attr_dev(textarea0, "class", "svelte-1viwdy0");
-    			add_location(textarea0, file, 80, 2, 2094);
-    			add_location(div1, file, 78, 1, 2066);
-    			add_location(button, file, 83, 1, 2207);
-    			add_location(h31, file, 86, 2, 2261);
+    			add_location(textarea0, file, 90, 2, 2324);
+    			add_location(div1, file, 88, 1, 2296);
+    			set_style(button0, "margin", "0 10px");
+    			add_location(button0, file, 94, 2, 2492);
+    			set_style(button1, "margin", "0 10px");
+    			add_location(button1, file, 95, 2, 2558);
+    			set_style(div2, "display", "flex");
+    			set_style(div2, "justify-content", "center");
+    			add_location(div2, file, 93, 1, 2437);
+    			add_location(h31, file, 99, 2, 2642);
     			attr_dev(textarea1, "name", "output-chin");
     			attr_dev(textarea1, "id", "output-chin");
     			attr_dev(textarea1, "cols", "30");
     			attr_dev(textarea1, "rows", "10");
     			textarea1.readOnly = true;
     			attr_dev(textarea1, "class", "svelte-1viwdy0");
-    			add_location(textarea1, file, 87, 2, 2280);
-    			add_location(div2, file, 85, 1, 2252);
+    			add_location(textarea1, file, 100, 2, 2661);
+    			add_location(div3, file, 98, 1, 2633);
     			attr_dev(a, "href", "https://github.com/takuya115/ChinChinMorse");
-    			add_location(a, file, 89, 1, 2402);
+    			add_location(a, file, 102, 1, 2783);
     			attr_dev(main, "class", "svelte-1viwdy0");
-    			add_location(main, file, 72, 0, 1933);
+    			add_location(main, file, 82, 0, 2173);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -721,21 +734,25 @@ var app = (function () {
     			append_dev(div1, textarea0);
     			set_input_value(textarea0, /*inputWord*/ ctx[0]);
     			append_dev(main, t10);
-    			append_dev(main, button);
-    			append_dev(main, t12);
     			append_dev(main, div2);
-    			append_dev(div2, h31);
-    			append_dev(div2, t14);
-    			append_dev(div2, textarea1);
-    			set_input_value(textarea1, /*encodeWord*/ ctx[1]);
-    			append_dev(main, t15);
+    			append_dev(div2, button0);
+    			append_dev(div2, t12);
+    			append_dev(div2, button1);
+    			append_dev(main, t14);
+    			append_dev(main, div3);
+    			append_dev(div3, h31);
+    			append_dev(div3, t16);
+    			append_dev(div3, textarea1);
+    			set_input_value(textarea1, /*outputWord*/ ctx[1]);
+    			append_dev(main, t17);
     			append_dev(main, a);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(textarea0, "input", /*textarea0_input_handler*/ ctx[3]),
-    					listen_dev(button, "click", /*encode*/ ctx[2], false, false, false),
-    					listen_dev(textarea1, "input", /*textarea1_input_handler*/ ctx[4])
+    					listen_dev(textarea0, "input", /*textarea0_input_handler*/ ctx[4]),
+    					listen_dev(button0, "click", /*encode*/ ctx[2], false, false, false),
+    					listen_dev(button1, "click", /*decode*/ ctx[3], false, false, false),
+    					listen_dev(textarea1, "input", /*textarea1_input_handler*/ ctx[5])
     				];
 
     				mounted = true;
@@ -746,8 +763,8 @@ var app = (function () {
     				set_input_value(textarea0, /*inputWord*/ ctx[0]);
     			}
 
-    			if (dirty & /*encodeWord*/ 2) {
-    				set_input_value(textarea1, /*encodeWord*/ ctx[1]);
+    			if (dirty & /*outputWord*/ 2) {
+    				set_input_value(textarea1, /*outputWord*/ ctx[1]);
     			}
     		},
     		i: noop,
@@ -808,13 +825,13 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("App", slots, []);
     	let inputWord = "";
-    	let encodeWord = "";
+    	let outputWord = "";
 
     	const moresProps = {
     		priority: 10,
     		dash: "ち",
     		dot: "ん",
-    		separator: "ぽ　"
+    		separator: "こ"
     	};
 
     	function encode() {
@@ -841,13 +858,25 @@ var app = (function () {
     			encodeList.push(morsify.encode(word, moresProps));
     		});
 
-    		$$invalidate(1, encodeWord = encodeList.join("\n"));
+    		$$invalidate(1, outputWord = encodeList.join("\n"));
     	}
 
     	// 漢字の検出
     	function detectKanji() {
     		const regexp = new RegExp(/([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu);
     		return regexp.test(inputWord);
+    	}
+
+    	// デコード
+    	function decode() {
+    		const inputList = inputWord.split("\n");
+    		const dencodeList = [];
+
+    		inputList.forEach(str => {
+    			dencodeList.push(morsify.decode(str, moresProps));
+    		});
+
+    		$$invalidate(1, outputWord = dencodeList.join("\n"));
     	}
 
     	const writable_props = [];
@@ -862,26 +891,27 @@ var app = (function () {
     	}
 
     	function textarea1_input_handler() {
-    		encodeWord = this.value;
-    		$$invalidate(1, encodeWord);
+    		outputWord = this.value;
+    		$$invalidate(1, outputWord);
     	}
 
     	$$self.$capture_state = () => ({
     		morsify,
     		inputWord,
-    		encodeWord,
+    		outputWord,
     		moresProps,
     		encode,
     		hiraToKana,
     		dakuonTransrator,
     		handakuonTransrator,
     		suteganaTransrator,
-    		detectKanji
+    		detectKanji,
+    		decode
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("inputWord" in $$props) $$invalidate(0, inputWord = $$props.inputWord);
-    		if ("encodeWord" in $$props) $$invalidate(1, encodeWord = $$props.encodeWord);
+    		if ("outputWord" in $$props) $$invalidate(1, outputWord = $$props.outputWord);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -890,8 +920,9 @@ var app = (function () {
 
     	return [
     		inputWord,
-    		encodeWord,
+    		outputWord,
     		encode,
+    		decode,
     		textarea0_input_handler,
     		textarea1_input_handler
     	];

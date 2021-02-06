@@ -2,8 +2,8 @@
 	import morsify from 'morsify';
 
 	let inputWord = '';
-	let encodeWord = '';
-	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'ぽ　' }
+	let outputWord = '';
+	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'こ' }
 
 	function encode() {
 		if(detectKanji()) return alert('漢字はつかえないよ！　めっ！！');
@@ -22,7 +22,7 @@
 			// モールス信号にする
 			encodeList.push(morsify.encode(word, moresProps));
 		})
-		encodeWord = encodeList.join('\n');
+		outputWord = encodeList.join('\n');
 	}
 
 	// ひらがな -> カタカナ
@@ -63,6 +63,16 @@
 		const regexp = new RegExp(/([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu);
 		return regexp.test(inputWord);
 	}
+
+	// デコード
+	function decode() {
+		const inputList = inputWord.split('\n');
+		const dencodeList = [];
+		inputList.forEach((str) => {
+			dencodeList.push(morsify.decode(str, moresProps))
+		})
+		outputWord = dencodeList.join('\n');
+	}
 	
 </script>
 
@@ -73,19 +83,22 @@
 <main>
 	<div>
 		<h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
-		<p>ただし、ぜんぶ「ちんぽ」になるよ！！</p> 
-		<p>長点(―)：「ち」、短点(・)：「ん」、区切り('')：「ぽ」</p>
+		<p>ただし、ぜんぶ「ちんこ」になるよ！！</p> 
+		<p>「ちんこ」で会話したい人は遊んでみてね！！</p>
 	</div>
 	<div>
 		<h3>にゅうりょく</h3>
 		<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
 	</div>
 	
-	<button on:click={encode}>えんこーど</button>
+	<div style="display:flex; justify-content:center;">
+		<button on:click={encode} style="margin:0 10px">えんこーど</button>
+		<button on:click={decode} style="margin:0 10px">でこーど</button>
+	</div>
 
 	<div>
 		<h3>しゅつりょく</h3>
-		<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={encodeWord} readonly></textarea>
+		<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={outputWord} readonly></textarea>
 	</div>
 	<a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
 
