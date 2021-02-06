@@ -664,38 +664,38 @@ var app = (function () {
     			t11 = space();
     			a = element("a");
     			a.textContent = "コードはこちら";
-    			add_location(h1, file, 86, 1, 2457);
+    			add_location(h1, file, 86, 1, 2464);
     			set_style(header, "text-align", "center");
     			attr_dev(header, "class", "svelte-1viwdy0");
-    			add_location(header, file, 85, 0, 2419);
-    			add_location(h30, file, 96, 2, 2672);
+    			add_location(header, file, 85, 0, 2426);
+    			add_location(h30, file, 96, 2, 2679);
     			attr_dev(textarea0, "name", "input-kana");
     			attr_dev(textarea0, "id", "input-kana");
     			attr_dev(textarea0, "cols", "30");
     			attr_dev(textarea0, "rows", "10");
     			attr_dev(textarea0, "class", "svelte-1viwdy0");
-    			add_location(textarea0, file, 97, 2, 2691);
-    			add_location(div0, file, 95, 1, 2663);
+    			add_location(textarea0, file, 97, 2, 2698);
+    			add_location(div0, file, 95, 1, 2670);
     			set_style(button0, "margin", "0 10px");
-    			add_location(button0, file, 101, 2, 2859);
+    			add_location(button0, file, 101, 2, 2866);
     			set_style(button1, "margin", "0 10px");
-    			add_location(button1, file, 102, 2, 2925);
+    			add_location(button1, file, 102, 2, 2932);
     			set_style(div1, "display", "flex");
     			set_style(div1, "justify-content", "center");
-    			add_location(div1, file, 100, 1, 2804);
-    			add_location(h31, file, 106, 2, 3009);
+    			add_location(div1, file, 100, 1, 2811);
+    			add_location(h31, file, 106, 2, 3016);
     			attr_dev(textarea1, "name", "output-chin");
     			attr_dev(textarea1, "id", "output-chin");
     			attr_dev(textarea1, "cols", "30");
     			attr_dev(textarea1, "rows", "10");
     			textarea1.readOnly = true;
     			attr_dev(textarea1, "class", "svelte-1viwdy0");
-    			add_location(textarea1, file, 107, 2, 3028);
-    			add_location(div2, file, 105, 1, 3000);
+    			add_location(textarea1, file, 107, 2, 3035);
+    			add_location(div2, file, 105, 1, 3007);
     			attr_dev(a, "href", "https://github.com/takuya115/ChinChinMorse");
-    			add_location(a, file, 109, 1, 3150);
+    			add_location(a, file, 109, 1, 3157);
     			attr_dev(main, "class", "svelte-1viwdy0");
-    			add_location(main, file, 88, 0, 2487);
+    			add_location(main, file, 88, 0, 2494);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -806,9 +806,9 @@ var app = (function () {
 
     	const moresProps = {
     		priority: 10,
-    		dash: "ち",
-    		dot: "ん",
-    		separator: "こ"
+    		dash: "ちんちん",
+    		dot: "ちんこ",
+    		separator: "╰⋃╯"
     	};
 
     	const mesugakiProps = {
