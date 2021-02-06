@@ -87,12 +87,12 @@
 	<h1>ちんちんもーるす</h1>
 </header>
 <main>
-	<!-- <div>
+	<div>
 		<h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
-		<p>ただし、ぜんぶ「ちんこ」になるよ！！</p> 
-		<p>「ちんこ」で会話したい人は遊んでみてね！！</p>
-		<p>えんこーど: 文章 to ちんこ, でこーど: ちんこ to 文章</p>
-	</div> -->
+		<p>もはやモールスというか換字式暗号みたくなってるけどツッコまないでね！</p>
+		<p>えんこーど: ぶんしょう → ちんちん...</p>
+		<p>でこーど: ちんちん... → ぶんしょう</p>
+	</div>
 	<div>
 		<h3>にゅうりょく</h3>
 		<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
@@ -107,6 +107,7 @@
 		<h3>しゅつりょく</h3>
 		<textarea name="output-chin" id="output-chin" cols="30" rows="10" bind:value={outputWord} readonly></textarea>
 	</div>
+	<p>遊びでひみつのモード仕込んでみたよ！さがしてみてね！</p>
 	<a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
 
 </main>
