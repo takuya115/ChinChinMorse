@@ -11,3 +11,6 @@
 
 morse-decorderに渡す文字列は事前にカタカナに変換する。
 その過程で濁音・半濁音・捨て仮名(小さいヤユヨなど)も同時に変換する。
+
+### デモ
+https://takuya115.github.io/ChinChinMorse/public/index.html
