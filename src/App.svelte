@@ -3,12 +3,15 @@
 
 	let inputWord = '';
 	let outputWord = '';
-	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'こ' }
+	const moresProps =  { priority: 10, dash: 'ち', dot: 'ん', separator: 'こ' };
+	const mesugakiProps = { priority: 10, dash: 'ざぁこ', dot: '♥', separator: '♡' }
 
 	function encode() {
 		if(detectKanji()) return alert('漢字はつかえないよ！　めっ！！');
 		const inputList = inputWord.split('\n');
 		const encodeList = [];
+		// シークレットモード
+		const mode = document.querySelector('#secret-mode').value;
 		inputList.forEach((str) => {
 			let word = str;
 			// ひらがなをカタカナにする
@@ -19,8 +22,9 @@
 			word = handakuonTransrator(word);
 			// 拗音(小さいヤユヨ)を元の文字にする
 			word = suteganaTransrator(word);
+			
 			// モールス信号にする
-			encodeList.push(morsify.encode(word, moresProps));
+			encodeList.push(morsify.encode(word, (mode === 'メスガキ') ? mesugakiProps : moresProps));
 		})
 		outputWord = encodeList.join('\n');
 	}
@@ -68,8 +72,10 @@
 	function decode() {
 		const inputList = inputWord.split('\n');
 		const dencodeList = [];
+		// シークレットモード
+		const mode = document.querySelector('#secret-mode').value;
 		inputList.forEach((str) => {
-			dencodeList.push(morsify.decode(str, moresProps))
+			dencodeList.push(morsify.decode(str, (mode === 'メスガキ') ? mesugakiProps : moresProps))
 		})
 		outputWord = dencodeList.join('\n');
 	}
@@ -81,12 +87,12 @@
 	<h1>ちんちんもーるす</h1>
 </header>
 <main>
-	<div>
+	<!-- <div>
 		<h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
 		<p>ただし、ぜんぶ「ちんこ」になるよ！！</p> 
 		<p>「ちんこ」で会話したい人は遊んでみてね！！</p>
 		<p>えんこーど: 文章 to ちんこ, でこーど: ちんこ to 文章</p>
-	</div>
+	</div> -->
 	<div>
 		<h3>にゅうりょく</h3>
 		<textarea name="input-kana" id="input-kana" cols="30" rows="10" bind:value={inputWord}></textarea>
