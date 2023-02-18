@@ -34,8 +34,8 @@ export default class Translator {
     // デコード
     public decode(morseText: string): string {
         // モールス -> uint8array -> 平文
-        const decoded = morse.decode(morseText, this.setting);
-        const array: Uint8Array = Uint8Array.from(decoded);
+        const decoded: string = morse.decode(morseText, this.setting);
+        const array: Uint8Array = Uint8Array.from(decoded.split(this.split).map(v => Number(v)));
         return new TextDecoder().decode(array)
     }
 }
