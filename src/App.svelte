@@ -1,90 +1,46 @@
-<script>
-  import Translate from "./translate"
-
-  // データ
-  const translate = new Translate();
-  let inputWord = "";
-  let outputWord = "";
-
-  function transrateText(mode) {
-    if (inputWord.length === 0) return;
-    const morseMode = document.querySelector("#secret-mode").value;
-    try {
-      outputWord = mode === "encode" ? translate.encode(inputWord, morseMode) : translate.decode(inputWord, morseMode);
-    } catch (error) {
-      alert(error);
-    }    
-  }
-
+<script lang="ts">
+  import svelteLogo from './assets/svelte.svg'
+  import Counter from './lib/Counter.svelte'
 </script>
 
-<header style="text-align:center;">
-  <h1>ちんちんもーるす</h1>
-</header>
 <main>
   <div>
-    <h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
-    <p>もはやモールスというか換字式暗号みたくなってるけどツッコまないでね！</p>
-    <p>えんこーど: ぶんしょう → ちんちん...</p>
-    <p>でこーど: ちんちん... → ぶんしょう</p>
+    <a href="https://vitejs.dev" target="_blank" rel="noreferrer"> 
+      <img src="/vite.svg" class="logo" alt="Vite Logo" />
+    </a>
+    <a href="https://svelte.dev" target="_blank" rel="noreferrer"> 
+      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
+    </a>
   </div>
-  <div>
-    <h3>にゅうりょく</h3>
-    <div>文字数: {inputWord.length}</div>
-    <textarea
-      name="input-kana"
-      id="input-kana"
-      cols="30"
-      rows="10"
-      bind:value={inputWord}
-    />
+  <h1>Vite + Svelte</h1>
+
+  <div class="card">
+    <Counter />
   </div>
 
-  <div style="display:flex; justify-content:center;">
-    <button on:click={() => transrateText("encode")} style="margin:0 10px">えんこーど</button>
-    <button on:click={() => transrateText("decode")} style="margin:0 10px">でこーど</button>
-  </div>
+  <p>
+    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
+  </p>
 
-  <div>
-    <h3>しゅつりょく</h3>
-    <div>文字数: {outputWord.length}</div>
-    <textarea
-      name="output-chin"
-      id="output-chin"
-      cols="30"
-      rows="10"
-      bind:value={outputWord}
-      readonly
-    />
-  </div>
-  <!-- valueにメスガキに変えるとメスガキモードになる -->
-	<input id="secret-mode" type="hidden" name="secret-mode" value="ちんちん">
-  <a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
+  <p class="read-the-docs">
+    Click on the Vite and Svelte logos to learn more
+  </p>
 </main>
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 500px;
-    margin: 0 auto;
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
   }
-
-  textarea {
-    resize: none;
-    width: 500px;
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
   }
-
-  @media (min-width: 640px) {
-    main,
-    header {
-      max-width: none;
-    }
+  .logo.svelte:hover {
+    filter: drop-shadow(0 0 2em #ff3e00aa);
   }
-
-  @media (max-width: 500px) {
-    textarea {
-      width: 100%;
-    }
+  .read-the-docs {
+    color: #888;
   }
 </style>
