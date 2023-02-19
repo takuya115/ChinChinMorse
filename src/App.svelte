@@ -55,9 +55,9 @@
 </header>
 <main>
   <div>
-    <h4>ひらがなとカタカナをモールス信号に変えるよ！</h4>
-    <p>えんこーど: ぶんしょう → ちんちん...</p>
-    <p>でこーど: ちんちん... → ぶんしょう</p>
+    <h4>文章を"ちんちん"に変えるよ！</h4>
+    <p>エンコード: 俺のちんちん → ちんちん...</p>
+    <p>デコード: ちんちん... → 俺のちんちん</p>
   </div>
 
   <div>
@@ -92,6 +92,7 @@
   <div>
     <TweetBtn bind:tweetText={outputText} bind:shareLink={shareLink} />
   </div>
+  <a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
 </main>
 
 <style>
