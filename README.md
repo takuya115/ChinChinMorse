@@ -1,4 +1,28 @@
-# Svelte + TS + Vite
+# ChinChinMorse
+
+## 概要
+
+### 変換方法
+
+1. 入力した文字列を`Uint8Array`に変換
+2. `morse-decoder` でモールス信号に変換
+
+* デコードはその逆を実行
+* 一般的なモールス信号の符号(－, ・)を独自の文字列に置き換えている
+  * -: 'ちんちん'
+  * ・: 'ちんこ'
+  * 区切り: 'ちんぽ'
+
+### その他
+
+* URL末尾にクエリ文字列`morse`が存在する場合、入力欄に自動的にモールス信号文字列が入力される
+* この文字列は `lz-string` を用いて圧縮された文字列であるため、事前に解凍を行っている
+
+## デモ
+
+<https://takuya115.github.io/ChinChinMorse/public/index.html>
+
+## Svelte + TS + Vite
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
 
@@ -14,8 +38,8 @@ Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also pow
 
 **Why use this over SvelteKit?**
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+* It brings its own routing solution which might not be preferable for some users.
+* It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
 
 This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
 
