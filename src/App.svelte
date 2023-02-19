@@ -1,20 +1,52 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import Compressor from "./lib/compressor";
   import Translator from "./lib/translator";
+  import TweetBtn from "./lib/TweetBtn.svelte";
+
+  const compressor = new Compressor();
   const translator = new Translator();
   let inputText: string = "";
   let outputText: string = "";
+  let shareLink: string = "";
 
   function encodeText() {
     const encoded = translator.encode(inputText);
     outputText = encoded;
-    // console.log(encoded);
+    shareLink = createURI(encoded);
+    console.log(shareLink);
   }
 
   function decodeText() {
     const decoded = translator.decode(inputText);
     outputText = decoded;
-    // console.log(decoded);
   }
+
+  function createURI(text: string) {
+    const compressedMorse = encodeURIComponent(compressor.compress(text));
+    const uri = window.location.origin + `?morse=${compressedMorse}`;
+    return uri
+  }
+
+  // クエリ文字列取得
+  function getParam(name: string) {
+    const url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  // ページ開始時
+  onMount(() => {
+    const morse = getParam("morse");
+    if (morse) {
+      inputText = compressor.decompress(decodeURIComponent(morse));
+    }
+  })
+
 </script>
 
 
@@ -56,6 +88,9 @@
       bind:value={outputText}
       readonly
     />
+  </div>
+  <div>
+    <TweetBtn bind:tweetText={outputText} bind:shareLink={shareLink} />
   </div>
 </main>
 
