@@ -19,6 +19,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "lz-string": "^1.4.4",
     "morse-decoder": "^3.0.1"
   }
 }
