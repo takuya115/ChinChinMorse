@@ -20,7 +20,7 @@
 
 ## デモ
 
-<https://takuya115.github.io/ChinChinMorse/public/index.html>
+<https://takuya115.github.io/ChinChinMorse/dist/index.html>
 
 ## Svelte + TS + Vite
 
