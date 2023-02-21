@@ -5,11 +5,12 @@
     function openTweetWindow() {
         // モールスが120を超えるときは詰める
         const tweetTextShorted = tweetText.length > 120 ? tweetText.slice(0, 120) + "..." : tweetText;
+        const currentURL = location.href.split("?")[0];
         let url = "https://twitter.com/share"
         if (tweetText && shareLink) {
             url += `?text=${tweetTextShorted}${encodeURI("\n\n")}${shareLink}`;
         } else {
-            url += `?text=${encodeURI("ちんちん")}${encodeURI("\n\n")}${window.location.origin}`;
+            url += `?text=${encodeURI("ちんちん")}${encodeURI("\n\n")}${currentURL}`;
         }
             
         const option = "left=300,top=100,height=430,width=550"

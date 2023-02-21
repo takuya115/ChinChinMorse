@@ -13,7 +13,7 @@
   function encodeText() {
     const encoded = translator.encode(inputText);
     outputText = encoded;
-    shareLink = createURI(encoded);
+    shareLink = createLink(encoded);
     console.log(shareLink);
   }
 
@@ -22,10 +22,11 @@
     outputText = decoded;
   }
 
-  function createURI(text: string) {
+  function createLink(text: string) {
     const compressedMorse = encodeURIComponent(compressor.compress(text));
-    const uri = window.location.origin + `?morse=${compressedMorse}`;
-    return uri
+    const currentURL = location.href.split("?")[0];
+    const link = currentURL + `?morse=${compressedMorse}`;
+    return link
   }
 
   // クエリ文字列取得
