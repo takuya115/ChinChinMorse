@@ -52,7 +52,7 @@
 
 
 <header style="text-align:center;">
-  <h1>ちんちんもーるす</h1>
+  <h1>ちんちんもーるす(v2)</h1>
 </header>
 <main>
   <div>
