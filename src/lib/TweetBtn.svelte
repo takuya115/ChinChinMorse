@@ -10,7 +10,7 @@
                 ? tweetText.slice(0, 120) + "..."
                 : tweetText;
         const currentURL = location.href.split("?")[0];
-        let url = "https://twitter.com/share";
+        let url = "https://twitter.com/intent/tweet";
         if (tweetText && shareLink) {
             url += `?text=${tweetTextShorted}${encodeURI("\n\n")}${shareLink}`;
         } else {
