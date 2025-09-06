@@ -44,7 +44,11 @@
   onMount(() => {
     const morse = getParam("morse");
     if (morse) {
-      inputText = compressor.decompress(decodeURIComponent(morse));
+      // 共有URLはcompact表現を圧縮したもの。解凍→平文へ復号→Prettyへ再エンコードして表示
+      const compact = compressor.decompress(decodeURIComponent(morse));
+      const plain = translator.decode(compact);
+      const pretty = translator.encodePretty(plain);
+      inputText = pretty;
     }
   })
 
