@@ -4,19 +4,13 @@
     $: href = getTweetLink(tweetText, shareLink);
 
     function getTweetLink(tweetText: string, shareLink: string): string {
-        // モールスが120を超えるときは詰める
-        const tweetTextShorted =
-            tweetText.length > 120
-                ? tweetText.slice(0, 120) + "..."
-                : tweetText;
+        // App側で50文字程度に短縮済みのPrettyを受け取り、改行1つでURLを続ける
         const currentURL = location.href.split("?")[0];
         let url = "https://twitter.com/intent/tweet";
         if (tweetText && shareLink) {
-            url += `?text=${tweetTextShorted}${encodeURI("\n\n")}${shareLink}`;
+            url += `?text=${tweetText}${encodeURI("\n")}${shareLink}`;
         } else {
-            url += `?text=${encodeURI("ちんちん")}${encodeURI(
-                "\n\n"
-            )}${currentURL}`;
+            url += `?text=${encodeURI("ちんちん")}${encodeURI("\n")}${currentURL}`;
         }
         return url;
     }

@@ -3,18 +3,20 @@
   import Compressor from "./lib/compressor";
   import Translator from "./lib/translator";
   import TweetBtn from "./lib/TweetBtn.svelte";
+  import { buildUiEncoding } from "./lib/uiEncoding";
 
   const compressor = new Compressor();
   const translator = new Translator();
   let inputText: string = "";
   let outputText: string = "";
   let shareLink: string = "";
+  let tweetText: string = ""; // 共有時の本文はPretty短縮版を使用
 
   function encodeText() {
-    const encoded = translator.encode(inputText);
-    outputText = encoded;
-    shareLink = createLink(encoded);
-    console.log(shareLink);
+    const { pretty, prettyShort, payload } = buildUiEncoding(inputText);
+    outputText = pretty; // 表示は従来どおりの「ちん◯」表現
+    shareLink = createLinkWithPayload(payload); // 共有はコンパクト由来
+    tweetText = prettyShort; // Tweet本文はPrettyの先頭50文字程度
   }
 
   function decodeText() {
@@ -22,11 +24,9 @@
     outputText = decoded;
   }
 
-  function createLink(text: string) {
-    const compressedMorse = encodeURIComponent(compressor.compress(text));
+  function createLinkWithPayload(payload: string) {
     const currentURL = location.href.split("?")[0];
-    const link = currentURL + `?morse=${compressedMorse}`;
-    return link
+    return currentURL + `?morse=${payload}`;
   }
 
   // クエリ文字列取得
@@ -44,7 +44,11 @@
   onMount(() => {
     const morse = getParam("morse");
     if (morse) {
-      inputText = compressor.decompress(decodeURIComponent(morse));
+      // 共有URLはcompact表現を圧縮したもの。解凍→平文へ復号→Prettyへ再エンコードして表示
+      const compact = compressor.decompress(decodeURIComponent(morse));
+      const plain = translator.decode(compact);
+      const pretty = translator.encodePretty(plain);
+      inputText = pretty;
     }
   })
 
@@ -91,7 +95,7 @@
     />
   </div>
   <div>
-    <TweetBtn bind:tweetText={outputText} bind:shareLink={shareLink} />
+    <TweetBtn bind:tweetText={tweetText} bind:shareLink={shareLink} />
   </div>
   <a href="https://github.com/takuya115/ChinChinMorse">コードはこちら</a>
 </main>
