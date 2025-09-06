@@ -10,13 +10,13 @@
   let inputText: string = "";
   let outputText: string = "";
   let shareLink: string = "";
-  let tweetText: string = ""; // 共有時はコンパクト表現を使用
+  let tweetText: string = ""; // 共有時の本文はPretty短縮版を使用
 
   function encodeText() {
-    const { pretty, compact, payload } = buildUiEncoding(inputText);
+    const { pretty, prettyShort, payload } = buildUiEncoding(inputText);
     outputText = pretty; // 表示は従来どおりの「ちん◯」表現
     shareLink = createLinkWithPayload(payload); // 共有はコンパクト由来
-    tweetText = compact;
+    tweetText = prettyShort; // Tweet本文はPrettyの先頭50文字程度
   }
 
   function decodeText() {
